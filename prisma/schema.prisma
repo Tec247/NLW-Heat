@@ -14,13 +14,14 @@ model User {
   avatar_url String
   login      String
 
-  Mmessages Message[]
   @@map("users")
+  messages Message[]
 }
 
 model Message {
   id   String @id @default(uuid())
   text String
+  created_at  DateTime @default(now())
 
   user User @relation(fields: [user_id], references: [id])
 

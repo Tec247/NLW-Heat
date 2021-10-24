@@ -14,10 +14,10 @@ interface IAccessTokenResponse {
   access_token: string;
 }
 interface IUserResponse {
-  avatar_url: string;
-  login: string;
-  id: number;
-  name: string;
+  avatar_url: string,
+  login: string,
+  id: number,
+  name: string
 }
 
 class AuthenticateUserService {
@@ -31,7 +31,7 @@ class AuthenticateUserService {
         code,
       },
       headers: {
-        "Accept": "application/json",
+        Accept: "application/json",
       },
     });
 
@@ -57,7 +57,7 @@ class AuthenticateUserService {
           login,
           avatar_url,
           name
-        }
+        },
       })
     }
     const token = sign(
@@ -66,7 +66,7 @@ class AuthenticateUserService {
           name: user.name,
           avatar_url: user.avatar_url,
           id: user.id
-        }
+        },
       },
       process.env.JWT_SECRET,
       {
